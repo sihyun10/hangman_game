@@ -1,6 +1,6 @@
 const hangmanImage = document.querySelector('.hangman-box img');
 const wordDisplay = document.querySelector('.word-display');
-const mistakeNumber = document.querySelector('.mistake-number b')
+const mistakeNumber = document.querySelector('.mistake-number b');
 const alphabetDiv = document.querySelector('.alphabet');
 
 let currentWord, failCount = 0;
@@ -54,8 +54,9 @@ const initGame = (button, clickedAlphabet) => {
       if(letter === clickedAlphabet) {
         wordDisplay.querySelectorAll('li')[index].innerText = letter;
         wordDisplay.querySelectorAll('li')[index].classList.add('guessed');
+        button.style.display = 'none';
       }
-    })
+    });
   } else {
     failCount += 1;
     hangmanImage.src = `images/hangman-${failCount}.jpg`;
