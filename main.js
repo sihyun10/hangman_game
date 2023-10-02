@@ -28,7 +28,11 @@ function displayRandomWords() {
 function startGame(selectedWord) {
   const selectBox = document.querySelector(".select-box");
   selectBox.style.display = 'none';
-  // console.log(selectedWord);
+
+  const hangmanBox = document.querySelector('.hangman-box');
+  hangmanBox.style.display = 'block';
+  const gameBox = document.querySelector('.game-box');
+  gameBox.style.display = 'block';
 }
 
 displayRandomWords();

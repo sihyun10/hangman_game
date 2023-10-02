@@ -32,7 +32,6 @@ body {
   gap: 10px;
   text-align: center;
 }
-
 .random-word {
   padding: 8px 10px;
   background-color: #0B610B;
@@ -40,7 +39,6 @@ body {
   font-weight: bold;
   border-radius: 5px;
 }
-
 .random-word:hover {
   background-color: #04B431;
 }
