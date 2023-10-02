@@ -1,5 +1,9 @@
 const wordDisplay = document.querySelector('.word-display');
+const mistakeNumber = document.querySelector('.mistake-number b')
 const alphabetDiv = document.querySelector('.alphabet');
+
+let currentWord, failCount = 0;
+const maxGuesses = 8;
 
 function getRandomWords() {
   const randomIndex = Math.floor(Math.random() * wordList.length);
@@ -29,6 +33,7 @@ function displayRandomWords() {
 }
 
 function startGame(selectedWord) {
+  currentWord = selectedWord;
   const selectBox = document.querySelector(".select-box");
   selectBox.style.display = 'none';
 
@@ -42,9 +47,24 @@ function startGame(selectedWord) {
 
 displayRandomWords();
 
+const initGame = (button, clickedAlphabet) => {
+  if(currentWord.includes(clickedAlphabet)) {
+    [...currentWord].forEach((letter, index) => {
+      if(letter === clickedAlphabet) {
+        wordDisplay.querySelectorAll('li')[index].innerText = letter;
+        wordDisplay.querySelectorAll('li')[index].classList.add('guessed');
+      }
+    })
+  } else {
+    failCount += 1;
+  }
+  mistakeNumber.innerText = `${failCount} / ${maxGuesses}`;
+}
+
 // a~z까지의 알파벳 버튼 생성
 for (let i = 97; i <= 122; i++) {
   const button = document.createElement('button');
   button.innerText = String.fromCharCode(i);
   alphabetDiv.appendChild(button);
+  button.addEventListener('click', e => initGame(e.target, String.fromCharCode(i)));
 }
