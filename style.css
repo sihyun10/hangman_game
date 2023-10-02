@@ -87,20 +87,22 @@ body {
   justify-content: center;
   margin-top: 40px;
 }
-.alphabet button {
+:where(.game-modal, .alphabet) button {
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   outline: none;
-  padding: 7px;
   border: none;
   background-color: #04B431;
   border-radius: 4px;
   text-transform: uppercase;
+}
+.alphabet button {
+  padding: 7px;
   width: calc(100% / 9 - 5px);
 }
-.alphabet button:hover {
+:where(.game-modal, .alphabet) button:hover {
   background-color: #01DF3A;
 }
 
@@ -114,6 +116,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.6);
+  display: none;
 }
 .game-modal .content {
   background-color: #fff;
@@ -140,8 +143,4 @@ body {
 }
 .game-modal button {
   padding: 12px 23px;
-  border-radius: 10px;
-  border: none;
-  font-size: 1rem;
-  font-weight: bold;
 }
