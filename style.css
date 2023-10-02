@@ -1,0 +1,46 @@
+/* Google font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+body {
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #82FA58;
+}
+.container {
+  display: flex;
+  width: 850px;
+  gap: 70px;
+  padding: 60px 40px;
+  background: #fff;
+  border-radius: 10px;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.random-words {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  text-align: center;
+}
+
+.random-word {
+  padding: 8px 10px;
+  background-color: #0B610B;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.random-word:hover {
+  background-color: #04B431;
+}
