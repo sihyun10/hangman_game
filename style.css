@@ -8,7 +8,6 @@
 }
 body {
   display: flex;
-  padding: 0 10px;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -22,8 +21,6 @@ body {
   background: #fff;
   border-radius: 10px;
   align-items: flex-end;
-  justify-content: space-between;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .random-words {
@@ -35,10 +32,74 @@ body {
 .random-word {
   padding: 8px 10px;
   background-color: #0B610B;
-  color: white;
+  color: #fff;
   font-weight: bold;
   border-radius: 5px;
 }
 .random-word:hover {
   background-color: #04B431;
+  cursor: pointer;
+}
+
+.hangman-box img {
+  max-width: 300px;
+}
+.hangman-box h1 {
+  font-size: 1.45rem;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.word-display {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+.word-display .letter {
+  width: 28px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 3px solid #000;
+  margin-bottom: 40px;
+}
+.word-display .letter.guessed {
+  border-color: transparent;
+  margin: -40px 0 35px;
+}
+.game-box h4 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.game-box .mistake-number b {
+  font-weight: 650;
+  color: #f00;
+}
+.game-box .alphabet {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+.alphabet button {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  padding: 7px;
+  border: none;
+  background-color: #04B431;
+  border-radius: 4px;
+  text-transform: uppercase;
+  width: calc(100% / 9 - 5px);
+}
+.alphabet button:hover {
+  background-color: #01DF3A;
 }
