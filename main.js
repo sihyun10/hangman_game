@@ -3,6 +3,7 @@ const wordDisplay = document.querySelector('.word-display');
 const mistakeNumber = document.querySelector('.mistake-number b')
 const alphabetDiv = document.querySelector('.alphabet');
 
+
 let currentWord, failCount = 0;
 const maxGuesses = 8;
 
