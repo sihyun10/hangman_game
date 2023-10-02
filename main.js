@@ -1,3 +1,6 @@
+const wordDisplay = document.querySelector('.word-display');
+const alphabetDiv = document.querySelector('.alphabet');
+
 function getRandomWords() {
   const randomIndex = Math.floor(Math.random() * wordList.length);
   const { word } = wordList.splice(randomIndex, 1)[0];
@@ -33,6 +36,15 @@ function startGame(selectedWord) {
   hangmanBox.style.display = 'block';
   const gameBox = document.querySelector('.game-box');
   gameBox.style.display = 'block';
+
+  wordDisplay.innerHTML = selectedWord.split('').map(() => `<li class="letter"></li>`).join('');
 }
 
 displayRandomWords();
+
+// a~z까지의 알파벳 버튼 생성
+for (let i = 97; i <= 122; i++) {
+  const button = document.createElement('button');
+  button.innerText = String.fromCharCode(i);
+  alphabetDiv.appendChild(button);
+}
