@@ -2,8 +2,9 @@ const hangmanImage = document.querySelector('.hangman-box img');
 const wordDisplay = document.querySelector('.word-display');
 const mistakeNumber = document.querySelector('.mistake-number b');
 const alphabetDiv = document.querySelector('.alphabet');
+const gameModal = document.querySelector('.game-modal');
 
-let currentWord, failCount = 0;
+let currentWord, correctAlphabets = [], failCount = 0;
 const maxGuesses = 8;
 
 function getRandomWords() {
@@ -48,10 +49,21 @@ function startGame(selectedWord) {
 
 displayRandomWords();
 
+const gameOver = (isSuccess) => {
+  setTimeout(() => {
+    const modalText = isSuccess ? `당신이 맞춘 단어는 :` : '정답은 :';
+    gameModal.querySelector('img').src = `images/${isSuccess ? 'success' : 'fail'}.gif`;
+    gameModal.querySelector('h4').innerText = `${isSuccess ? '축하드립니다~!' : '게임이 종료되었습니다'}`;
+    gameModal.querySelector('p').innerHTML = `${modalText} <b>${currentWord}</b>`;
+    gameModal.classList.add('show');
+  }, 300);
+}
+
 const initGame = (button, clickedAlphabet) => {
   if(currentWord.includes(clickedAlphabet)) {
     [...currentWord].forEach((letter, index) => {
       if(letter === clickedAlphabet) {
+        correctAlphabets.push(letter);
         wordDisplay.querySelectorAll('li')[index].innerText = letter;
         wordDisplay.querySelectorAll('li')[index].classList.add('guessed');
         button.style.display = 'none';
@@ -63,6 +75,14 @@ const initGame = (button, clickedAlphabet) => {
   }
   button.disabled = true;
   mistakeNumber.innerText = `${failCount} / ${maxGuesses}`;
+
+  // 게임 종료 조건(오류횟수 8번이상일 경우(실패), 다 일치할 경우(성공))
+  if(failCount === maxGuesses) {
+    return gameOver(false);
+  }
+  if(correctAlphabets.length === currentWord.length) {
+    return gameOver(true);
+  }
 }
 
 // a~z까지의 알파벳 버튼 생성
