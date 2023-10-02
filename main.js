@@ -1,3 +1,4 @@
+const hangmanImage = document.querySelector('.hangman-box img');
 const wordDisplay = document.querySelector('.word-display');
 const mistakeNumber = document.querySelector('.mistake-number b')
 const alphabetDiv = document.querySelector('.alphabet');
@@ -57,6 +58,7 @@ const initGame = (button, clickedAlphabet) => {
     })
   } else {
     failCount += 1;
+    hangmanImage.src = `images/hangman-${failCount}.jpg`;
   }
   mistakeNumber.innerText = `${failCount} / ${maxGuesses}`;
 }
