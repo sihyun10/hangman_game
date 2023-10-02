@@ -3,7 +3,6 @@ const wordDisplay = document.querySelector('.word-display');
 const mistakeNumber = document.querySelector('.mistake-number b')
 const alphabetDiv = document.querySelector('.alphabet');
 
-
 let currentWord, failCount = 0;
 const maxGuesses = 8;
 
@@ -61,6 +60,7 @@ const initGame = (button, clickedAlphabet) => {
     failCount += 1;
     hangmanImage.src = `images/hangman-${failCount}.jpg`;
   }
+  button.disabled = true;
   mistakeNumber.innerText = `${failCount} / ${maxGuesses}`;
 }
 

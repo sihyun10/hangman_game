@@ -103,6 +103,11 @@ body {
   padding: 7px;
   width: calc(100% / 9 - 5px);
 }
+.alphabet button[disabled] {
+  background-color: #CEF6D8;
+  color: #f00;
+  pointer-events: none;
+}
 :where(.game-modal, .alphabet) button:hover {
   background-color: #01DF3A;
 }
