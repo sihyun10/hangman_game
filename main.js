@@ -7,21 +7,21 @@ const gameModal = document.querySelector('.game-modal');
 let currentWord, correctAlphabets = [], failCount = 0;
 const maxGuesses = 8;
 
-function getRandomWords() {
+const getRandomWords = () => {
   const randomIndex = Math.floor(Math.random() * wordList.length);
   const { word } = wordList.splice(randomIndex, 1)[0];
   return word;
 }
 
-function displayRandomWords() {
+const displayRandomWords = () => {
   const randomWordsContainer = document.querySelector(".random-words");
 
   const randomWords = [];
   while (randomWords.length < 3) {
-      const word = getRandomWords();
-      if (!randomWords.includes(word)) {
-          randomWords.push(word);
-      }
+    const word = getRandomWords();
+    if (!randomWords.includes(word)) {
+        randomWords.push(word);
+    }
   }
   randomWordsContainer.innerHTML = '';
   randomWords.forEach((word) => {
@@ -34,7 +34,7 @@ function displayRandomWords() {
   });
 }
 
-function startGame(selectedWord) {
+const startGame = (selectedWord) => {
   currentWord = selectedWord;
   const selectBox = document.querySelector(".select-box");
   selectBox.style.display = 'none';
@@ -44,7 +44,7 @@ function startGame(selectedWord) {
   const gameBox = document.querySelector('.game-box');
   gameBox.style.display = 'block';
 
-  wordDisplay.innerHTML = selectedWord.split('').map(() => `<li class="letter"></li>`).join('');
+  wordDisplay.innerHTML = currentWord.split('').map(() => `<li class="letter"></li>`).join('');
 }
 
 displayRandomWords();
